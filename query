@@ -1,0 +1,48 @@
+CREATE TABLE IF NOT EXISTS Livros(
+  ID INTEGER PRIMARY KEY,
+  titulo VARCHAR(255),
+  autor VARCHAR(255),
+  isbn VARCHAR(13),
+  preco FLOAT,
+  categoria VARCHAR(50)
+);
+
+INSERT INTO Livros (titulo, autor, isbn, preco, categoria) VALUES
+("Dom Quixote", "Miguel de Cervantes", "9780142437230", 25.00, "Ficção"),
+("Orgulho e Preconceito", "Jane Austen", "9780199535569", 20.50, "Romance"),
+("Crime e Castigo", "Fiódor Dostoiévski", "9788535908060", 22.75, "Drama"),
+("O Conde de Monte Cristo", "Alexandre Dumas", "9780349009646", 28.99, "Aventura"),
+("Ulisses", "James Joyce", "9780141184434", 30.25, "Clássico Moderno"),
+("Moby Dick", "Herman Melville", "9780142437247", 26.50, "Aventura"),
+("A Metamorfose", "Franz Kafka", "9788571643563", 18.75, "Ficção"),
+("Os Miseráveis", "Victor Hugo", "9780451419439", 35.00, "Drama"),
+("Anna Karenina", "Lev Tolstói", "9780451528612", 24.99, "Romance"),
+("O Morro dos Ventos Uivantes", "Emily Brontë", "9780141439556", 21.75, "Romance"),
+("1984", "George Orwell", "9780452284234", 19.50, "Distopia"),
+("O Retrato de Dorian Gray", "Oscar Wilde", "9780141439570", 17.25, "Ficção"),
+("Guerra e Paz", "Lev Tolstói", "9780140447934", 32.99, "Drama"),
+("As Aventuras de Huckleberry Finn", "Mark Twain", "9780142437179", 23.50, "Aventura"),
+("Romeu e Julieta", "William Shakespeare", "9780143128571", 16.99, "Drama"),
+("A Ilíada", "Homero", "9780140444445", 14.99, "Épico"),
+("A Odisseia", "Homero", "9780140449112", 15.50, "Épico"),
+("Odisseia", "James Joyce", "9780199537563", 29.99, "Clássico Moderno"),
+("O Grande Gatsby", "F. Scott Fitzgerald", "9780141182638", 18.50, "Drama"),
+("O Estrangeiro", "Albert Camus", "9780394700021", 20.25, "Filosofia"),
+("A Divina Comédia", "Dante Alighieri", "9780142437223", 26.99, "Épico"),
+("O Processo", "Franz Kafka", "9788535912531", 21.75, "Ficção"),
+("Grande Sertão: Veredas", "João Guimarães Rosa", "9788535910292", 22.50, "Drama"),
+("O Vermelho e o Negro", "Stendhal", "9780140447644", 19.99, "Romance"),
+("O Pequeno Príncipe", "Antoine de Saint-Exupéry", "9782070623259", 12.75, "Fábula"),
+("O Retrato de Dorian Gray", "Oscar Wilde", "9788571102450", 18.99, "Ficção"),
+("A Insustentável Leveza do Ser", "Milan Kundera", "9788535908718", 24.50, "Romance"),
+("O Amante de Lady Chatterley", "D. H. Lawrence", "9780394605197", 21.99, "Romance"),
+("A Montanha Mágica", "Thomas Mann", "9780141180146", 28.75, "Drama"),
+("O Senhor dos Anéis", "J.R.R. Tolkien", "9780345339706", 36.99, "Fantasia"),
+("Guia do Mochileiro das Galáxias", "Douglas Adams", "9780345391803", 19.99, "Ficção Científica");
+
+SELECT * FROM Livros WHERE categoria = 'Fantasia';
+SELECT titulo, autor, preco FROM livros WHERE ISBN = '9780141180146';
+UPDATE Livros SET preco = 55.00 WHERE titulo = 'O Senhor dos Anéis';
+DELETE FROM Livros WHERE titulo = 'Guia do Mochileiro das Galáxias';
+SELECT categoria, COUNT(*) AS quantidade_de_livros FROM Livros GROUP BY categoria;
+SELECT * FROM Livros ORDER BY categoria ASC, preco DESC;
